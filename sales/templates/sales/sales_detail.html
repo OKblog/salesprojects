@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}{{ object.customer_name }}{% endblock %}
+{% block h2 %}詳細{% endblock %}
+
+{% block content %}
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">営業番号</th>
+            <th scope="col">営業日</th>
+            <th scope="col">アポ相手</th>
+            <th scope="col">年齢</th>
+            <th scope="col">仕事</th>
+            <th scope="col">ビジネス</th>
+            <th scope="col">住まい</th>
+            <th scope="col">ニーズ</th>
+            <th scope="col">結果</th>
+            <th scope="col">特徴</th>
+            </tr>
+        </thead>
+        <div class="p-4">
+            <th scope="row">{{ object.id }}</th>
+            <td>{{ object.user_id }}</td>
+            <td>{{ object.date }}</td>
+            <td>{{ object.customer_name }}</td>
+            <td>{{ object.age }}</td>
+            <td>{{ object.work }}</td>
+            <td>{{ object.business }}</td>
+            <td>{{ object.place }}</td>
+            <td>{{ object.wants }}</td>
+            <td>{{ object.result }}</td>
+            <td>{{ object.other }}</td>
+        </div>
+    </table>
+    <a href="{% url 'sales' %}" class="btn btn-primary">一覧へ</a>
+    <a href="{% url 'update' object.pk %}" class="btn btn-primary">編集する</a>
+    <a href="{% url 'delete' object.pk %}" class="btn btn-primary">削除する</a>
+{% endblock content %}

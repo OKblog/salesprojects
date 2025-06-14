@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}SIGNUP{% endblock %}
+{% block h2 %}SIGNUP{% endblock %}
+
+{% block content %}
+<form method="post" class="p-4 m-4 bg-light border form-floating">
+<div class="row mb-2">
+  {% csrf_token %}
+    {{ form.non_field_errors }}
+    {% for field in form %}
+      {{ field.label }}
+      {{ field }}
+      {{ field.errors }}
+    <br>
+  {% endfor %}
+  <small class="mb-2 d-block test-start">パスワードは8文字以上で設定してください</small>
+  {% if form.errors %}
+    <span class="mb-2 small text-danger d-block text-start">利用できないユーザーIDやパスワードの可能性があります。入力内容をご確認ください。</sapn>
+  {% endif %}
+</div>
+  <button type="submit" class="btn btn-success m-2">登録する</button>
+  {% comment %} <a href="{% url 'index' %}" class="btn btn-secondary">戻る</button> {% endcomment %}
+</form>
+{% endblock %}

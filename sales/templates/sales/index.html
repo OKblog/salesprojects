@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}ようこそ{% endblock title %}
+{% block content %}
+    <div class="px-4 py-5 my-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://cdn.vectorstock.com/i/preview-1x/91/31/business-finance-chart-check-list-logo-vector-5219131.jpg" alt="" width="72" height="57">
+        <h1 class="display-5 fw-bold text-body-emphasis">Sales Information</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="lead mb-4">あなたの営業情報をここに</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                {% if request.user.is_authenticated %}
+                <div class="btn btn-lg px-4 gap-3">
+                    <a href="{% url 'sales' %}">一覧へ</a>
+                </div>
+                <div class="btn btn-lg px-4 gap-3">
+                    <a href="{% url 'create' %}">新規作成</a>
+                </div>
+                {% else %}
+                <div class="btn btn-lg px-4 gap-3">
+                    <a href="{% url 'accounts:login' %}">Login</a>
+                </div>
+                <div class="btn btn-lg px-4 gap-3">
+                    <a href="{% url 'accounts:signup' %}">Signup</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

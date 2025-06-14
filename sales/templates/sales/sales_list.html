@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}一覧{% endblock title %}
+{% block h2 %}情報 一覧{% endblock %}
+
+{% block content %}
+    <form action="" method="get">
+      <input name="query" placeholder="アポ相手の名前 or 住まい" value="{{ request.GET.query }}" type="text-end" />
+      <button type="submit">検索する</button>
+    </form>
+    
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">営業メンバー</th>
+            <th scope="col">アポ相手</th>
+            <th scope="col">住まい</th>
+            <th scope="col">ニーズ</th>
+            <th scope="col">ビジネス</th>
+            <th scope="col">結果</th>
+            <th scope="col">詳細へ</th>
+            </tr>
+        </thead>
+        {% for item in object_list %}
+        <a href="{% url 'detail' item.pk %}">
+            <tbody>
+                <tr>
+                <th scope="row">{{ item.id }}</th>
+                <td>{{ item.user_id }}</td>
+                <td>{{ item.customer_name }}</td>
+                <td>{{ item.place }}</td>
+                <td>{{ item.wants }}</td>
+                <td>{{ item.business }}</td>
+                <td>{{ item.result }}</td>
+                <td><a href="{% url 'detail' item.id %}" class="btn btn-primary">詳細へ</a></td>
+                </tr>
+            </tbody>
+        </a>
+        {% endfor %}
+    </table>
+    {% include "sales/components/pagination.html" %}
+{% endblock content %}
