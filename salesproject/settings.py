@@ -19,6 +19,7 @@ import os
 BASE_DIR = os.path.abspath(os.path.join(__file__, '../../../'))
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_URL = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = ''
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
