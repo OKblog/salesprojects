@@ -11,3 +11,4 @@ class Command(BaseCommnad):
                 email = '',
                 password = 'your_password'
             )
+            print("スーパーユーザー作成に成功しました")
