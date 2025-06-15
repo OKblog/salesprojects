@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-)-k2$&e-nskyf_7cwr3uqqqnz3n%vsno$c9g_vv=kdi#*n&&gq
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -49,7 +49,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware"
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "salesproject.urls"
@@ -87,7 +87,7 @@ if not DEBUG:
     DATABASES = {
     "default": dj_database_url.config (
         #Replace this value with your local database's connection string.
-        default = 'postgresql://postgres:postgres@localhost:5432/salesprojects',
+        default = 'postgresql://postgres:postgres@localhost:5432/salesproject',
         conn_max_age=600
     )
 }
