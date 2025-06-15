@@ -1,4 +1,4 @@
-from django.core.managementbase import BaseCommand
+from django.core.management.base import BaseCommand
 from dhango.contirb.auth import get_user_model
 from django.conf import settings
 
