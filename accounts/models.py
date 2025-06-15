@@ -28,7 +28,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     account_id = models.CharField(
         verbose_name= "account_id",
-        max_length=10,
+        max_length=255,
         primary_key=True
     )
     objects = UserManager()

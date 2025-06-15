@@ -34,15 +34,15 @@ class CustomerInformation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     customer_name = models.CharField(max_length=255)
     age = models.PositiveIntegerField()
-    work = models.CharField(max_length=100,
+    work = models.CharField(max_length=255,
                             choices= WORK)
-    business = models.CharField(max_length=100,
+    business = models.CharField(max_length=255,
                                 null=True, blank=True)
-    place = models.CharField(max_length=100,
+    place = models.CharField(max_length=255,
                              choices= PROVNAME)
-    wants = models.CharField(max_length=100,
+    wants = models.CharField(max_length=255,
                              choices=WANTS)
-    result = models.CharField(max_length=100,
+    result = models.CharField(max_length=255,
                               choices = CATEGORY)
     other = models.TextField(null=True, blank=True)
     date = models.DateField(null=True, blank=True)
