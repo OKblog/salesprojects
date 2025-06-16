@@ -18,7 +18,7 @@ import os
 
 BASE_DIR = os.path.abspath(os.path.join(__file__, '../../../'))
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 # Quick-start development settings - unsuitable for production
@@ -97,8 +97,6 @@ if not DEBUG:
     )
 }
 
-ALLOWED_HOSTS = ['*']
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -123,6 +121,9 @@ USE_I18N = True
 
 USE_TZ = True
 
+if not DEBUG:
+    STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
