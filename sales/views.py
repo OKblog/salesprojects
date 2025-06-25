@@ -6,6 +6,11 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.exceptions import PermissionDenied
 from .consts import ITEM_PER_PAGE
 from django.db.models import Q
+import logging
+
+logger = logging.getLogger(__name__)
+logger.info("log info test!")
+logger.error("log error test!")
 
 # Create your views here.
 def index_view(request):
